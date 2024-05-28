@@ -8,7 +8,8 @@
 bool LedIsOn[ARR_LENGTH];
 int btnsArr[ARR_LENGTH] = {redBtn,greenBtn};
 int ledsArr[ARR_LENGTH] = {redLed,greenLed};
-
+int currBtn;
+int lastBtn;
     void ToggleLed(int ledPinNumber){
       
     if(LedIsOn[ledPinNumber]){
@@ -42,13 +43,15 @@ void setup() {
   }
 }
 void loop() {
-  for(int i=0;i<ARR_LENGTH;i++){
-    if(digitalRead(btnsArr[i])== LOW){
-    ToggleLed(i);
-    while(digitalRead(btnsArr[i])== LOW){
-         delay(50);
-      }
-    }
+  for(int i=0; i<ARR_LENGTH;i++){
+
+currBtn=digitalRead(btnsArr[i])
+  if((CurrBtn == LOW) && (LastBtn == HIGH)){
+    ToggleLed(0);
+  }
+ 
+
+ LastBtn=CurrBtn;
   }
   
 } 
